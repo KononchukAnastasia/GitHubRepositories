@@ -26,11 +26,11 @@ struct AuthView: View {
                             .frame(width: 200, height: 200)
                             .padding()
                         
-                        ZStack(alignment: .leading) {
                             TextField("", text: $token)
                                 .placeholder(when: token.isEmpty) {
                                     Text("Personal access token")
                                         .foregroundStyle(.white)
+                                        .font(.title)
                                 }
                                 .padding()
                                 .background(Color.gray.opacity(0.2))
@@ -40,6 +40,12 @@ struct AuthView: View {
                                 )
                                 .cornerRadius(10)
                                 .foregroundColor(.white)
+                                .font(.title2)
+                        
+                        if let error = authViewModel.error {
+                            Text(error)
+                                .foregroundStyle(.red)
+                                .font(.title3)
                         }
                         
                         Spacer()
@@ -62,7 +68,7 @@ struct AuthView: View {
                                 } else {
                                     Text("Sign up")
                                         .foregroundStyle(.white)
-                                        .font(.headline)
+                                        .font(.title)
                                 }
                             }
                         }

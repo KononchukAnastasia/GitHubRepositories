@@ -9,6 +9,7 @@ import Foundation
 
 final class AuthViewModel: ObservableObject {
     @Published var user: User?
+    @Published var error: String?
     @Published var isLoading = false
     
     func fetchUser(token: String) {
@@ -21,11 +22,13 @@ final class AuthViewModel: ObservableObject {
             switch result {
             case .success(let user):
                 self?.isLoading = false
+                self?.error = nil
                 self?.user = user
-                print("**** \(user)")
             case .failure(let error):
-                self?.isLoading = false
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.isLoading = false
+                    self?.error = error.rawValue
+                }
             }
         }
     }
