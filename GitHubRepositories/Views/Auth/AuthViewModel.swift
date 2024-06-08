@@ -8,7 +8,6 @@
 import Foundation
 
 final class AuthViewModel: ObservableObject {
-    @Published var user: User?
     @Published var error: String?
     @Published var isLoading = false
     
@@ -23,7 +22,8 @@ final class AuthViewModel: ObservableObject {
             case .success(let user):
                 self?.isLoading = false
                 self?.error = nil
-                self?.user = user
+                
+                AppStorageManager.shared.saveLogin(user.login)
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.isLoading = false

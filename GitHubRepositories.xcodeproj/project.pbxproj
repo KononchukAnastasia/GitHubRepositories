@@ -17,6 +17,7 @@
 		B5D65A702C11ABA700A0ABDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65A6F2C11ABA700A0ABDE /* User.swift */; };
 		B5D65A732C11E30000A0ABDE /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65A722C11E30000A0ABDE /* LoaderView.swift */; };
 		B5D65A762C11E51500A0ABDE /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65A752C11E51500A0ABDE /* Extension+View.swift */; };
+		B5D65AAA2C146ED700A0ABDE /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B5D65A6F2C11ABA700A0ABDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5D65A722C11E30000A0ABDE /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		B5D65A752C11E51500A0ABDE /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				B5D65A672C119F5600A0ABDE /* Api.swift */,
 				B5D65A692C11A3DF00A0ABDE /* NetworkManager.swift */,
+				B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D65A6D2C11A78C00A0ABDE /* AuthViewModel.swift in Sources */,
+				B5D65AAA2C146ED700A0ABDE /* AppStorageManager.swift in Sources */,
 				B5D65A6A2C11A3DF00A0ABDE /* NetworkManager.swift in Sources */,
 				B5D65A762C11E51500A0ABDE /* Extension+View.swift in Sources */,
 				B5D65A702C11ABA700A0ABDE /* User.swift in Sources */,
