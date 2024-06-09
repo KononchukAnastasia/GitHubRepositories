@@ -14,7 +14,7 @@ struct AuthView: View {
     
     var body: some View {
         ZStack {
-            Color.gray
+            Color.black
                 .ignoresSafeArea()
             
             GeometryReader { geometry in
@@ -33,7 +33,7 @@ struct AuthView: View {
                                         .font(.title)
                                 }
                                 .padding()
-                                .background(Color.gray.opacity(0.2))
+                                .background(Color.asphalt.opacity(0.4))
                                 .background(
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.black, lineWidth: 1)
@@ -50,28 +50,11 @@ struct AuthView: View {
                         
                         Spacer()
                         
-                        Button {
-                            authViewModel.fetchUser(token: token)
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(.purple)
-                                    .frame(height: 48)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.black, lineWidth: 1)
-                                    )
-                                    .shadow(radius: 5)
-                                
-                                if authViewModel.isLoading {
-                                    LoaderView(color: .white)
-                                } else {
-                                    Text("Sign up")
-                                        .foregroundStyle(.white)
-                                        .font(.title)
-                                }
-                            }
-                        }
+                        ButtonView(
+                            text: "Sign up",
+                            isLoading: authViewModel.isLoading,
+                            action: { authViewModel.fetchUser(token: token) }
+                        )
                     }
                     .padding(16)
                     .frame(minHeight: geometry.size.height)

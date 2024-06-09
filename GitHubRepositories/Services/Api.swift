@@ -8,13 +8,15 @@
 import Foundation
 
 struct Api {
-    // MARK: - Public Properties
-    
-    static var user = createEndpoint(["user"])
-    
     // MARK: - Private Properties
     
     private static var baseUrl = "https://api.github.com"
+    
+    // MARK: - Public Methods
+    
+    static func user() -> String {
+        createEndpoint(["user"])
+    }
     
     // MARK: - Private Methods
     

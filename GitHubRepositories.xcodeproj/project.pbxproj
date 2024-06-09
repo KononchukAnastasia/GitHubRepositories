@@ -17,7 +17,12 @@
 		B5D65A702C11ABA700A0ABDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65A6F2C11ABA700A0ABDE /* User.swift */; };
 		B5D65A732C11E30000A0ABDE /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65A722C11E30000A0ABDE /* LoaderView.swift */; };
 		B5D65A762C11E51500A0ABDE /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65A752C11E51500A0ABDE /* Extension+View.swift */; };
+		B5D65AA22C14456C00A0ABDE /* RepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA12C14456B00A0ABDE /* RepositoriesView.swift */; };
+		B5D65AA42C14459300A0ABDE /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA32C14459300A0ABDE /* RepositoriesViewModel.swift */; };
+		B5D65AA62C1445DB00A0ABDE /* RepositoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */; };
+		B5D65AA82C14488200A0ABDE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA72C14488200A0ABDE /* Repository.swift */; };
 		B5D65AAA2C146ED700A0ABDE /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */; };
+		B5D65AAC2C159E8800A0ABDE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +37,12 @@
 		B5D65A6F2C11ABA700A0ABDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5D65A722C11E30000A0ABDE /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		B5D65A752C11E51500A0ABDE /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		B5D65AA12C14456B00A0ABDE /* RepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesView.swift; sourceTree = "<group>"; };
+		B5D65AA32C14459300A0ABDE /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
+		B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRowView.swift; sourceTree = "<group>"; };
+		B5D65AA72C14488200A0ABDE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
+		B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +97,7 @@
 		B5D65A622C119E0400A0ABDE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B5D65AA02C14452900A0ABDE /* RepositoriesList */,
 				B5D65A712C11E2CB00A0ABDE /* Components */,
 				B5D65A6B2C11A74400A0ABDE /* Auth */,
 			);
@@ -124,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D65A6F2C11ABA700A0ABDE /* User.swift */,
+				B5D65AA72C14488200A0ABDE /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D65A722C11E30000A0ABDE /* LoaderView.swift */,
+				B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -142,6 +155,16 @@
 				B5D65A752C11E51500A0ABDE /* Extension+View.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5D65AA02C14452900A0ABDE /* RepositoriesList */ = {
+			isa = PBXGroup;
+			children = (
+				B5D65AA12C14456B00A0ABDE /* RepositoriesView.swift */,
+				B5D65AA32C14459300A0ABDE /* RepositoriesViewModel.swift */,
+				B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */,
+			);
+			path = RepositoriesList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,14 +238,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D65A6D2C11A78C00A0ABDE /* AuthViewModel.swift in Sources */,
+				B5D65AA22C14456C00A0ABDE /* RepositoriesView.swift in Sources */,
+				B5D65AA62C1445DB00A0ABDE /* RepositoryRowView.swift in Sources */,
 				B5D65AAA2C146ED700A0ABDE /* AppStorageManager.swift in Sources */,
 				B5D65A6A2C11A3DF00A0ABDE /* NetworkManager.swift in Sources */,
 				B5D65A762C11E51500A0ABDE /* Extension+View.swift in Sources */,
+				B5D65AAC2C159E8800A0ABDE /* ButtonView.swift in Sources */,
 				B5D65A702C11ABA700A0ABDE /* User.swift in Sources */,
 				B5D65A732C11E30000A0ABDE /* LoaderView.swift in Sources */,
+				B5D65AA42C14459300A0ABDE /* RepositoriesViewModel.swift in Sources */,
 				B5D65A682C119F5600A0ABDE /* Api.swift in Sources */,
 				B5D65A642C119E4E00A0ABDE /* AuthView.swift in Sources */,
 				B5D65A552C119DB300A0ABDE /* GitHubRepositoriesApp.swift in Sources */,
+				B5D65AA82C14488200A0ABDE /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +392,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,7 +425,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,29 +1,26 @@
 //
-//  AuthViewModel.swift
+//  RepositoriesViewModel.swift
 //  GitHubRepositories
 //
-//  Created by Анастасия Конончук on 06.06.2024.
+//  Created by Анастасия Конончук on 08.06.2024.
 //
 
 import Foundation
 
-final class AuthViewModel: ObservableObject {
-    @Published var user: User?
-    @Published var error: String?
+final class RepositoriesViewModel: ObservableObject {
+    @Published var repositories: [Repository] = []
     @Published var isLoading = false
+    @Published var error: String?
     
-    func fetchUser(token: String) {
+    func fetchRepos(url: String) {
         isLoading = true
         
-        NetworkManager.shared.fetchUser(
-            url: Api.user(),
-            token: token
-        ) { [weak self] result in
+        NetworkManager.shared.fetchRepos(url: url) { [weak self] result in
             switch result {
-            case .success(let user):
+            case .success(let repos):
                 self?.isLoading = false
                 self?.error = nil
-                self?.user = user
+                self?.repositories = repos
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.isLoading = false

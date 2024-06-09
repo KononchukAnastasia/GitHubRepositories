@@ -18,7 +18,7 @@ enum NetworkError: LocalizedError {
     // Received an bad response, e.g. non HTTP result.
     case badResponse(String)
     
-    // No decode data.
+    // No decoded data.
     case noDecodedData(String = "The data couldn’t be read because it isn’t in the correct format.")
     
     var rawValue: String {
@@ -78,6 +78,37 @@ final class NetworkManager {
                 
                 DispatchQueue.main.async {
                     completion(.success(user))
+                }
+            } catch {
+                completion(.failure(.noDecodedData()))
+            }
+        }.resume()
+    }
+    
+    func fetchRepos(
+        url: String,
+        completion: @escaping (Result<[Repository], NetworkError>) -> ()
+    ) {
+        guard let url = URL(string: url) else {
+            return completion(.failure(.badURL()))
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(.transportError(error)))
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let repositories = try JSONDecoder().decode(
+                    [Repository].self,
+                    from: data
+                )
+                
+                DispatchQueue.main.async {
+                    completion(.success(repositories))
                 }
             } catch {
                 completion(.failure(.noDecodedData()))
