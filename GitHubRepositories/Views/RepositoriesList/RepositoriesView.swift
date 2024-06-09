@@ -25,29 +25,40 @@ struct RepositoriesView: View {
                     VStack(spacing: 24) {
                         Text(error)
                             .multilineTextAlignment(.center)
+                            .foregroundStyle(.white)
                         
-                        ButtonView(text: "Retry") {
-                            fetchRepos()
-                        }
+                        ButtonView(text: "Retry") { fetchRepos() }
                     }
-                    .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding()
                 } else {
-                    LazyVStack {
-                        ForEach(
-                            repositoriesViewModel.repositories,
-                            id: \.self
-                        ) { repository in
-                            RepositoryRowView(
-                                title: repository.name,
-                                info: repository.description ?? "",
-                                language: repository.language ?? ""
-                            )
-                            .padding(.horizontal)
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(
+                                repositoriesViewModel.repositories,
+                                id: \.self
+                            ) { repository in
+                                RepositoryRowView(
+                                    title: repository.name,
+                                    info: repository.description,
+                                    language: repository.language
+                                )
+                                .padding(.horizontal)
+                                .onAppear {
+                                    repositoriesViewModel.onScrolledAtBottom(
+                                        url: user.reposUrl,
+                                        repository: repository
+                                    )
+                                }
+                            }
+                            
+                            if repositoriesViewModel.isShowLoader() {
+                                LoaderView(color: .white, size: 30)
+                                    .padding(.top, 8)
+                            }
                         }
+                        .padding(.vertical)
                     }
-                    .padding(.vertical)
                 }
             }
             .navigationTitle("Repositories")

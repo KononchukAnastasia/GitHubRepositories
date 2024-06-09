@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RepositoryRowView: View {
     let title: String
-    let info: String
-    let language: String
+    let info: String?
+    let language: String?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,12 +22,12 @@ struct RepositoryRowView: View {
                 
                 Spacer()
                 
-                Text(language)
+                Text(language ?? "")
                     .foregroundStyle(.red)
                     .font(.subheadline)
             }
             
-            Text(info)
+            Text(info ?? "")
                 .foregroundStyle(.white)
                 .lineLimit(4)
                 .font(.callout)

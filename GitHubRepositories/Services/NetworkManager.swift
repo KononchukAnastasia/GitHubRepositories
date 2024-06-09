@@ -87,13 +87,23 @@ final class NetworkManager {
     
     func fetchRepos(
         url: String,
+        perPage: Int,
+        page: Int,
         completion: @escaping (Result<[Repository], NetworkError>) -> ()
     ) {
         guard let url = URL(string: url) else {
             return completion(.failure(.badURL()))
         }
+       
+        let parameters: [String: String] = [
+            "per_page": String(perPage),
+            "page": String(page)
+        ]
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
+        var request = URLRequest(url: url)
+        request.url = createQuery(for: url, parameters: parameters)
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 completion(.failure(.transportError(error)))
                 return
@@ -114,5 +124,21 @@ final class NetworkManager {
                 completion(.failure(.noDecodedData()))
             }
         }.resume()
+    }
+    
+    private func createQuery(
+        for url: URL,
+        parameters: [String: String]
+    ) -> URL? {
+        var components = URLComponents(
+            url: url,
+            resolvingAgainstBaseURL: false
+        )
+        
+        components?.queryItems = parameters.map {
+            URLQueryItem(name: $0.key, value: $0.value)
+        }
+        
+        return components?.url
     }
 }
