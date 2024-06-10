@@ -10,7 +10,7 @@ import SwiftUI
 struct RepositoriesView: View {
     @StateObject private var repositoriesViewModel = RepositoriesViewModel()
     
-    let user: User
+    @Binding var user: User?
     
     var body: some View {
         NavigationStack {
@@ -45,6 +45,8 @@ struct RepositoriesView: View {
                                 )
                                 .padding(.horizontal)
                                 .onAppear {
+                                    guard let user = user else { return }
+                                    
                                     repositoriesViewModel.onScrolledAtBottom(
                                         url: user.reposUrl,
                                         repository: repository
@@ -64,7 +66,7 @@ struct RepositoriesView: View {
             .navigationTitle("Repositories")
             .toolbar {
                 Button("Log out") {
-                    // TODO: implement later
+                    user = nil
                 }
                 .foregroundStyle(.white)
                 .onAppear {
@@ -75,10 +77,11 @@ struct RepositoriesView: View {
     }
     
     private func fetchRepos() {
+        guard let user = user else { return }
         repositoriesViewModel.fetchRepos(url: user.reposUrl)
     }
 }
 
 #Preview {
-    RepositoriesView(user: User.getUser())
+    RepositoriesView(user: .constant(User.getUser()))
 }

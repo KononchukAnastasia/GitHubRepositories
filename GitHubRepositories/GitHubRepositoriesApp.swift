@@ -17,8 +17,8 @@ struct GitHubRepositoriesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if let user = user {
-                RepositoriesView(user: user)
+            if user != nil {
+                RepositoriesView(user: $user)
             } else {
                 AuthView(
                     onSuccessAuth: { user in
