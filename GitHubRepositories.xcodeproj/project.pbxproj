@@ -21,7 +21,6 @@
 		B5D65AA42C14459300A0ABDE /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA32C14459300A0ABDE /* RepositoriesViewModel.swift */; };
 		B5D65AA62C1445DB00A0ABDE /* RepositoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */; };
 		B5D65AA82C14488200A0ABDE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA72C14488200A0ABDE /* Repository.swift */; };
-		B5D65AAA2C146ED700A0ABDE /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */; };
 		B5D65AAC2C159E8800A0ABDE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		B5D65AA32C14459300A0ABDE /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRowView.swift; sourceTree = "<group>"; };
 		B5D65AA72C14488200A0ABDE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
 		B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +107,6 @@
 			children = (
 				B5D65A672C119F5600A0ABDE /* Api.swift */,
 				B5D65A692C11A3DF00A0ABDE /* NetworkManager.swift */,
-				B5D65AA92C146ED700A0ABDE /* AppStorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,7 +237,6 @@
 				B5D65A6D2C11A78C00A0ABDE /* AuthViewModel.swift in Sources */,
 				B5D65AA22C14456C00A0ABDE /* RepositoriesView.swift in Sources */,
 				B5D65AA62C1445DB00A0ABDE /* RepositoryRowView.swift in Sources */,
-				B5D65AAA2C146ED700A0ABDE /* AppStorageManager.swift in Sources */,
 				B5D65A6A2C11A3DF00A0ABDE /* NetworkManager.swift in Sources */,
 				B5D65A762C11E51500A0ABDE /* Extension+View.swift in Sources */,
 				B5D65AAC2C159E8800A0ABDE /* ButtonView.swift in Sources */,
