@@ -8,11 +8,10 @@
 import Foundation
 
 final class AuthViewModel: ObservableObject {
-    @Published var user: User?
     @Published var error: String?
     @Published var isLoading = false
     
-    func fetchUser(token: String) {
+    func fetchUser(token: String, completion: ((User) -> Void)?) {
         isLoading = true
         
         NetworkManager.shared.fetchUser(
@@ -23,7 +22,7 @@ final class AuthViewModel: ObservableObject {
             case .success(let user):
                 self?.isLoading = false
                 self?.error = nil
-                self?.user = user
+                completion?(user)
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.isLoading = false

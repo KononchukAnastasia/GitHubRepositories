@@ -9,13 +9,23 @@ import SwiftUI
 
 @main
 struct GitHubRepositoriesApp: App {
+    @State private var user: User?
+    
     init() {
         setupNavigationBarAppearance()
     }
     
     var body: some Scene {
         WindowGroup {
-            AuthView()
+            if let user = user {
+                RepositoriesView(user: user)
+            } else {
+                AuthView(
+                    onSuccessAuth: { user in
+                        self.user = user
+                    }
+                )
+            }
         }
     }
     

@@ -12,6 +12,8 @@ struct AuthView: View {
     
     @State private var token = ""
     
+    let onSuccessAuth: ((User) -> Void)?
+    
     var body: some View {
         ZStack {
             Color.black
@@ -53,7 +55,11 @@ struct AuthView: View {
                         ButtonView(
                             text: "Sign up",
                             isLoading: authViewModel.isLoading,
-                            action: { authViewModel.fetchUser(token: token) }
+                            action: {
+                                authViewModel.fetchUser(token: token) { user in
+                                    onSuccessAuth?(user)
+                                }
+                            }
                         )
                     }
                     .padding(16)
@@ -66,5 +72,5 @@ struct AuthView: View {
 }
 
 #Preview {
-    AuthView()
+    AuthView(onSuccessAuth: nil)
 }
