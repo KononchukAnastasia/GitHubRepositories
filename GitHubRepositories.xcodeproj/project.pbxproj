@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52589DA2C1B3BFC006967E6 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = B52589D92C1B3BFC006967E6 /* MarkdownUI */; };
 		B5D65A552C119DB300A0ABDE /* GitHubRepositoriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65A542C119DB300A0ABDE /* GitHubRepositoriesApp.swift */; };
 		B5D65A592C119DB700A0ABDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D65A582C119DB700A0ABDE /* Assets.xcassets */; };
 		B5D65A5C2C119DB700A0ABDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D65A5B2C119DB700A0ABDE /* Preview Assets.xcassets */; };
@@ -22,6 +23,10 @@
 		B5D65AA62C1445DB00A0ABDE /* RepositoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */; };
 		B5D65AA82C14488200A0ABDE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AA72C14488200A0ABDE /* Repository.swift */; };
 		B5D65AAC2C159E8800A0ABDE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */; };
+		B5D65AAF2C16CC8200A0ABDE /* RepositoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AAE2C16CC8200A0ABDE /* RepositoryDetailsView.swift */; };
+		B5D65AB12C173CD100A0ABDE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AB02C173CD100A0ABDE /* InfoView.swift */; };
+		B5D65AB32C17519100A0ABDE /* RepositoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AB22C17519100A0ABDE /* RepositoryDetailsViewModel.swift */; };
+		B5D65AB52C175DDB00A0ABDE /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D65AB42C175DDA00A0ABDE /* Content.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,10 @@
 		B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRowView.swift; sourceTree = "<group>"; };
 		B5D65AA72C14488200A0ABDE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		B5D65AAE2C16CC8200A0ABDE /* RepositoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsView.swift; sourceTree = "<group>"; };
+		B5D65AB02C173CD100A0ABDE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		B5D65AB22C17519100A0ABDE /* RepositoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewModel.swift; sourceTree = "<group>"; };
+		B5D65AB42C175DDA00A0ABDE /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52589DA2C1B3BFC006967E6 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,9 +105,10 @@
 		B5D65A622C119E0400A0ABDE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B5D65AA02C14452900A0ABDE /* RepositoriesList */,
 				B5D65A712C11E2CB00A0ABDE /* Components */,
 				B5D65A6B2C11A74400A0ABDE /* Auth */,
+				B5D65AA02C14452900A0ABDE /* RepositoriesList */,
+				B5D65AAD2C16CC5D00A0ABDE /* RepositoryDetails */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 			children = (
 				B5D65A6F2C11ABA700A0ABDE /* User.swift */,
 				B5D65AA72C14488200A0ABDE /* Repository.swift */,
+				B5D65AB42C175DDA00A0ABDE /* Content.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +154,7 @@
 			children = (
 				B5D65A722C11E30000A0ABDE /* LoaderView.swift */,
 				B5D65AAB2C159E8800A0ABDE /* ButtonView.swift */,
+				B5D65AB02C173CD100A0ABDE /* InfoView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -157,11 +170,20 @@
 		B5D65AA02C14452900A0ABDE /* RepositoriesList */ = {
 			isa = PBXGroup;
 			children = (
-				B5D65AA12C14456B00A0ABDE /* RepositoriesView.swift */,
 				B5D65AA32C14459300A0ABDE /* RepositoriesViewModel.swift */,
+				B5D65AA12C14456B00A0ABDE /* RepositoriesView.swift */,
 				B5D65AA52C1445DB00A0ABDE /* RepositoryRowView.swift */,
 			);
 			path = RepositoriesList;
+			sourceTree = "<group>";
+		};
+		B5D65AAD2C16CC5D00A0ABDE /* RepositoryDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B5D65AB22C17519100A0ABDE /* RepositoryDetailsViewModel.swift */,
+				B5D65AAE2C16CC8200A0ABDE /* RepositoryDetailsView.swift */,
+			);
+			path = RepositoryDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +202,9 @@
 			dependencies = (
 			);
 			name = GitHubRepositories;
+			packageProductDependencies = (
+				B52589D92C1B3BFC006967E6 /* MarkdownUI */,
+			);
 			productName = GitHubRepositories;
 			productReference = B5D65A512C119DB300A0ABDE /* GitHubRepositories.app */;
 			productType = "com.apple.product-type.application";
@@ -208,6 +233,9 @@
 				Base,
 			);
 			mainGroup = B5D65A482C119DB300A0ABDE;
+			packageReferences = (
+				B52589D82C1B3BFC006967E6 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+			);
 			productRefGroup = B5D65A522C119DB300A0ABDE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -244,8 +272,12 @@
 				B5D65A732C11E30000A0ABDE /* LoaderView.swift in Sources */,
 				B5D65AA42C14459300A0ABDE /* RepositoriesViewModel.swift in Sources */,
 				B5D65A682C119F5600A0ABDE /* Api.swift in Sources */,
+				B5D65AB32C17519100A0ABDE /* RepositoryDetailsViewModel.swift in Sources */,
 				B5D65A642C119E4E00A0ABDE /* AuthView.swift in Sources */,
+				B5D65AAF2C16CC8200A0ABDE /* RepositoryDetailsView.swift in Sources */,
 				B5D65A552C119DB300A0ABDE /* GitHubRepositoriesApp.swift in Sources */,
+				B5D65AB12C173CD100A0ABDE /* InfoView.swift in Sources */,
+				B5D65AB52C175DDB00A0ABDE /* Content.swift in Sources */,
 				B5D65AA82C14488200A0ABDE /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +492,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B52589D82C1B3BFC006967E6 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B52589D92C1B3BFC006967E6 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B52589D82C1B3BFC006967E6 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5D65A492C119DB300A0ABDE /* Project object */;
 }

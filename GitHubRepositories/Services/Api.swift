@@ -18,6 +18,10 @@ struct Api {
         createEndpoint(["user"])
     }
     
+    static func content(owner: String, repo: String, path: String) -> String {
+        createEndpoint(["repos", owner, repo, "contents", path])
+    }
+    
     // MARK: - Private Methods
     
     private static func createEndpoint(_ components: [String]) -> String {

@@ -94,7 +94,7 @@ final class NetworkManager {
         guard let url = URL(string: url) else {
             return completion(.failure(.badURL()))
         }
-       
+        
         let parameters: [String: String] = [
             "per_page": String(perPage),
             "page": String(page)
@@ -119,6 +119,37 @@ final class NetworkManager {
                 
                 DispatchQueue.main.async {
                     completion(.success(repositories))
+                }
+            } catch {
+                completion(.failure(.noDecodedData()))
+            }
+        }.resume()
+    }
+    
+    func getContent(
+        url: String,
+        completion: @escaping (Result<Content, NetworkError>) -> Void
+    ) {
+        guard let url = URL(string: url) else {
+            return completion(.failure(.badURL()))
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(.transportError(error)))
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let content = try JSONDecoder().decode(
+                    Content.self,
+                    from: data
+                )
+                
+                DispatchQueue.main.async {
+                    completion(.success(content))
                 }
             } catch {
                 completion(.failure(.noDecodedData()))
