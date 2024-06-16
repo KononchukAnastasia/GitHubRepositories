@@ -26,7 +26,7 @@ final class AuthViewModel: ObservableObject {
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.isLoading = false
-                    self?.error = error.rawValue
+                    self?.error = error.message
                 }
             }
         }

@@ -11,6 +11,7 @@ final class RepositoryDetailsViewModel: ObservableObject {
     @Published var markdownText: String?
     @Published var isLoading = false
     @Published var error: String?
+    @Published var isReadmeNotFound = false
     
     private(set) var content: Content?
     
@@ -27,6 +28,9 @@ final class RepositoryDetailsViewModel: ObservableObject {
             switch result {
             case .success(let content):
                 self?.isLoading = false
+                self?.isReadmeNotFound = false
+                self?.error = nil
+                
                 let cleanedEncodedContent = content.content
                     .replacingOccurrences(of: "\n", with: "")
                 
@@ -41,7 +45,12 @@ final class RepositoryDetailsViewModel: ObservableObject {
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.isLoading = false
-                    self?.error = error.rawValue
+                    
+                    if error.statusCode == 404 {
+                        self?.isReadmeNotFound = true
+                    }
+                    
+                    self?.error = error.message
                 }
             }
         }

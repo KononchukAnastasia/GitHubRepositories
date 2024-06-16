@@ -10,7 +10,7 @@ import MarkdownUI
 
 struct RepositoryDetailsView: View {
     @StateObject private var repositoryDetailsViewModel =
-    RepositoryDetailsViewModel()
+        RepositoryDetailsViewModel()
     
     @Binding var user: User?
     
@@ -25,6 +25,7 @@ struct RepositoryDetailsView: View {
                 VStack {
                     InfoView(repository: repository)
                         .padding([.horizontal, .top])
+                    
                     if repositoryDetailsViewModel.isLoading {
                         LoaderView(color: .white, size: 40)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -34,7 +35,9 @@ struct RepositoryDetailsView: View {
                                 .multilineTextAlignment(.center)
                                 .foregroundStyle(.white)
                             
-                            ButtonView(text: "Retry") { getContent() }
+                            if !repositoryDetailsViewModel.isReadmeNotFound {
+                                ButtonView(text: "Retry") { getContent() }
+                            }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding()
@@ -59,11 +62,7 @@ struct RepositoryDetailsView: View {
                 }
             }
             .onAppear {
-                repositoryDetailsViewModel.getContent(
-                    owner: repository.owner.login,
-                    repo: repository.name,
-                    path: "README.md"
-                )
+                getContent()
             }
         }
     }

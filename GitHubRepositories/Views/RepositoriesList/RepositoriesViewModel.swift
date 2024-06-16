@@ -37,7 +37,7 @@ final class RepositoriesViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self?.isLoading = false
                     self?.isCanLoadNextPage = false
-                    self?.error = error.rawValue
+                    self?.error = error.message
                 }
             }
         }

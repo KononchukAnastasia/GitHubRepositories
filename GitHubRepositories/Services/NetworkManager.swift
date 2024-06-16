@@ -16,21 +16,34 @@ enum NetworkError: LocalizedError {
     case transportError(Error)
     
     // Received an bad response, e.g. non HTTP result.
-    case badResponse(String)
+    case badResponse(String, Int)
     
     // No decoded data.
     case noDecodedData(String = "The data couldn’t be read because it isn’t in the correct format.")
     
-    var rawValue: String {
+    var message: String {
         switch self {
         case .badURL(let message):
             return message
         case .transportError(let error):
             return error.localizedDescription
-        case .badResponse(let message):
+        case .badResponse(let message, _):
             return message
         case .noDecodedData(let message):
             return message
+        }
+    }
+    
+    var statusCode: Int? {
+        switch self {
+        case .badURL(_):
+            return nil
+        case .transportError(_):
+            return nil
+        case .badResponse(_, let statusCode):
+            return statusCode
+        case .noDecodedData(_):
+            return nil
         }
     }
 }
@@ -59,14 +72,19 @@ final class NetworkManager {
             }
             
             if let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode == 401 {
-                    completion(.failure(.badResponse("Invalid token.")))
-                    return
-                } else if !(200...299).contains(httpResponse.statusCode) {
-                    let message = "Bad response.\nStatus code:"
-                    let error = "\(message) \(httpResponse.statusCode)"
+                let statusCode = httpResponse.statusCode
+                
+                if statusCode == 401 {
+                    completion(
+                        .failure(.badResponse("Invalid token.", statusCode))
+                    )
                     
-                    completion(.failure(.badResponse(error)))
+                    return
+                } else if !(200...299).contains(statusCode) {
+                    let message = "Bad response.\nStatus code:"
+                    let error = "\(message) \(statusCode)"
+                    
+                    completion(.failure(.badResponse(error, statusCode)))
                     return
                 }
             }
@@ -134,10 +152,22 @@ final class NetworkManager {
             return completion(.failure(.badURL()))
         }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(.transportError(error)))
                 return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                let statusCode = httpResponse.statusCode
+                
+                if statusCode == 404 {
+                    completion(
+                        .failure(.badResponse("Readme not found.", statusCode))
+                    )
+                    
+                    return
+                }
             }
             
             guard let data = data else { return }
