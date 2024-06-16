@@ -38,19 +38,25 @@ struct RepositoriesView: View {
                                 repositoriesViewModel.repositories,
                                 id: \.self
                             ) { repository in
-                                RepositoryRowView(
-                                    title: repository.name,
-                                    info: repository.description,
-                                    language: repository.language
-                                )
-                                .padding(.horizontal)
-                                .onAppear {
-                                    guard let user = user else { return }
-                                    
-                                    repositoriesViewModel.onScrolledAtBottom(
-                                        url: user.reposUrl,
-                                        repository: repository
+                                NavigationLink(
+                                    destination: RepositoryDetailsView(
+                                        user: $user,
+                                        repository: repository)
+                                ) {
+                                    RepositoryRowView(
+                                        title: repository.name,
+                                        info: repository.description,
+                                        language: repository.language
                                     )
+                                    .padding(.horizontal)
+                                    .onAppear {
+                                        guard let user = user else { return }
+                                        
+                                        repositoriesViewModel.onScrolledAtBottom(
+                                            url: user.reposUrl,
+                                            repository: repository
+                                        )
+                                    }
                                 }
                             }
                             
