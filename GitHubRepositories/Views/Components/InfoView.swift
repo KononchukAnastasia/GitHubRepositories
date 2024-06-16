@@ -16,7 +16,7 @@ struct InfoView: View {
                 Image("link")
                 
                 if let url = URL(string: repository.htmlURL) {
-                    Link(repository.htmlURL, destination: url)
+                    Link(linkTitle(text: repository.htmlURL), destination: url)
                         .font(.footnote)
                         .foregroundStyle(.sky)
                 }
@@ -25,7 +25,7 @@ struct InfoView: View {
             HStack {
                 Image("star")
                 
-                Text("0")
+                Text("\(repository.stargazersCount)")
                     .foregroundStyle(.golden)
                 
                 Text("stars")
@@ -35,7 +35,7 @@ struct InfoView: View {
                 
                 Image("fork")
                 
-                Text("0")
+                Text("\(repository.forksCount)")
                     .foregroundStyle(.grass)
                 
                 Text("fork")
@@ -45,14 +45,17 @@ struct InfoView: View {
                 
                 Image("watcher")
                 
-                Text("0")
+                Text("\(repository.watchersCount)")
                     .foregroundStyle(.arctic)
                 
                 Text("watcher")
                     .foregroundStyle(.white)
             }
         }
-        
+    }
+    
+    private func linkTitle(text: String) -> String {
+        text.replacingOccurrences(of: "https://", with: "")
     }
 }
 
@@ -60,6 +63,7 @@ struct InfoView: View {
     ZStack {
         Color.black
             .ignoresSafeArea()
+        
         InfoView(repository: Repository.getRepository())
     }
 }
