@@ -8,13 +8,19 @@
 import Foundation
 
 final class RepositoriesViewModel: ObservableObject {
+    // MARK: - Property Wrappers
+    
     @Published var repositories: [Repository] = []
     @Published var isLoading = false
     @Published var error: String?
     
+    // MARK: - Private Properties
+    
     private var isCanLoadNextPage = true
     private var page = 1
     private let perPage = 10
+    
+    // MARK: - Public Methods
     
     func fetchRepos(url: String) {
         guard isCanLoadNextPage else { return }

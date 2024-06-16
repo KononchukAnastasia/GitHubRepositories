@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct InfoView: View {
+    // MARK: - Public Properties
+    
     let repository: Repository
+    
+    // MARK: - Body
     
     var body: some View {
         VStack(spacing: 16) {
@@ -54,10 +58,14 @@ struct InfoView: View {
         }
     }
     
+    // MARK: - Private Methods
+    
     private func linkTitle(text: String) -> String {
         text.replacingOccurrences(of: "https://", with: "")
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     ZStack {

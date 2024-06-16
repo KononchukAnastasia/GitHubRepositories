@@ -8,6 +8,8 @@
 import Foundation
 
 struct Repository: Decodable, Hashable {
+    // MARK: - Public Properties
+    
     let id: Int
     let name: String
     let htmlURL: String
@@ -32,21 +34,25 @@ struct Repository: Decodable, Hashable {
 }
 
 struct Owner: Decodable, Hashable {
+    // MARK: - Public Properties
+    
     let login: String
 }
 
+// MARK: - Extension Repository
+
 extension Repository {
     static func getRepository() -> Repository {
-            Repository(
-                id: 800065832,
-                name: "WarSnake",
-                htmlURL: "https://github.com/KononchukAnastasia/WarSnake",
-                description: "Game written using the framework SpriteKit.",
-                stargazersCount: 3,
-                watchersCount: 0,
-                language: "Swift",
-                forksCount: 0,
-                owner: Owner(login: "KononchukAnastasia")
-            )
+        Repository(
+            id: 800065832,
+            name: "WarSnake",
+            htmlURL: "https://github.com/KononchukAnastasia/WarSnake",
+            description: "Game written using the framework SpriteKit.",
+            stargazersCount: 3,
+            watchersCount: 0,
+            language: "Swift",
+            forksCount: 0,
+            owner: Owner(login: "KononchukAnastasia")
+        )
     }
 }

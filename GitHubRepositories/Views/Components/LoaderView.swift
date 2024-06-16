@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct LoaderView: View {
+    // MARK: - Property Wrappers
+    
     @State private var isAnimating = false
+    
+    // MARK: - Public Properties
     
     let color: Color
     let size: CGFloat
+    
+    // MARK: - Body
     
     var body: some View {
         Circle()
@@ -27,6 +33,8 @@ struct LoaderView: View {
             }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     ZStack {

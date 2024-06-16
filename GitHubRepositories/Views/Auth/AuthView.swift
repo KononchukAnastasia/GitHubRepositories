@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct AuthView: View {
+    // MARK: - Property Wrappers
+    
     @StateObject private var authViewModel = AuthViewModel()
     
     @State private var token = ""
     
+    // MARK: - Public Properties
+    
     let onSuccessAuth: ((User) -> Void)?
+    
+    // MARK: - Body
     
     var body: some View {
         ZStack {
@@ -28,21 +34,21 @@ struct AuthView: View {
                             .frame(width: 200, height: 200)
                             .padding()
                         
-                            TextField("", text: $token)
-                                .placeholder(when: token.isEmpty) {
-                                    Text("Personal access token")
-                                        .foregroundStyle(.white)
-                                        .font(.title)
-                                }
-                                .padding()
-                                .background(Color.asphalt.opacity(0.4))
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 1)
-                                )
-                                .cornerRadius(10)
-                                .foregroundColor(.white)
-                                .font(.title2)
+                        TextField("", text: $token)
+                            .placeholder(when: token.isEmpty) {
+                                Text("Personal access token")
+                                    .foregroundStyle(.white)
+                                    .font(.title)
+                            }
+                            .padding()
+                            .background(Color.asphalt.opacity(0.4))
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
+                            .cornerRadius(10)
+                            .foregroundColor(.white)
+                            .font(.title2)
                         
                         if let error = authViewModel.error {
                             Text(error)
@@ -70,6 +76,8 @@ struct AuthView: View {
         .endEditing()
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     AuthView(onSuccessAuth: nil)

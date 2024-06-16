@@ -8,6 +8,8 @@
 import Foundation
 
 struct User: Decodable {
+    // MARK: - Public Properties
+    
     let login: String
     let reposUrl: String
     
@@ -16,6 +18,8 @@ struct User: Decodable {
         case reposUrl = "repos_url"
     }
 }
+
+// MARK: - Extension User
 
 extension User {
     static func getUser() -> User {

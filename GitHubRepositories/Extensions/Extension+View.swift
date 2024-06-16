@@ -8,6 +8,8 @@
 import SwiftUI
 
 extension View {
+    // MARK: - Public Methods
+    
     func placeholder(
         when isShow: Bool,
         alignment: Alignment = .leading,

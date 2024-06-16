@@ -9,12 +9,18 @@ import SwiftUI
 import MarkdownUI
 
 struct RepositoryDetailsView: View {
+    // MARK: - Property Wrappers
+    
     @StateObject private var repositoryDetailsViewModel =
         RepositoryDetailsViewModel()
     
     @Binding var user: User?
     
+    // MARK: - Public Properties
+    
     let repository: Repository
+    
+    // MARK: - Body
     
     var body: some View {
         NavigationStack {
@@ -67,6 +73,8 @@ struct RepositoryDetailsView: View {
         }
     }
     
+    // MARK: - Private Methods
+    
     private func getContent() {
         repositoryDetailsViewModel.getContent(
             owner: repository.owner.login,
@@ -75,6 +83,8 @@ struct RepositoryDetailsView: View {
         )
     }
 }
+
+// MARK: - Extension RepositoryDetailsView
 
 extension RepositoryDetailsView {
     @ViewBuilder
@@ -89,6 +99,8 @@ extension RepositoryDetailsView {
             }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     RepositoryDetailsView(

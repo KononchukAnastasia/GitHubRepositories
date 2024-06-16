@@ -8,8 +8,12 @@
 import Foundation
 
 final class AuthViewModel: ObservableObject {
+    // MARK: - Property Wrappers
+    
     @Published var error: String?
     @Published var isLoading = false
+    
+    // MARK: - Public Methods
     
     func fetchUser(token: String, completion: ((User) -> Void)?) {
         isLoading = true

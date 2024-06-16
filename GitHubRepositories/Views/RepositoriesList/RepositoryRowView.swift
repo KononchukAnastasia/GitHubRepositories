@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct RepositoryRowView: View {
+    // MARK: - Public Properties
+    
     let title: String
     let info: String?
     let language: String?
+    
+    // MARK: - Body
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,6 +41,8 @@ struct RepositoryRowView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     ZStack {

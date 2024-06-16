@@ -9,11 +9,17 @@ import SwiftUI
 
 @main
 struct GitHubRepositoriesApp: App {
+    // MARK: - Property Wrappers
+    
     @State private var user: User?
+    
+    // MARK: - Initializers
     
     init() {
         setupNavigationBarAppearance()
     }
+    
+    // MARK: - Body
     
     var body: some Scene {
         WindowGroup {
@@ -28,6 +34,8 @@ struct GitHubRepositoriesApp: App {
             }
         }
     }
+    
+    // MARK: - Private Methods
     
     private func setupNavigationBarAppearance() {
         let appearance = UINavigationBarAppearance()

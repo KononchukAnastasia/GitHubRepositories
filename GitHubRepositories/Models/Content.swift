@@ -8,6 +8,8 @@
 import Foundation
 
 struct Content: Decodable {
+    // MARK: - Public Properties
+    
     let content: String
     let downloadUrl: String
     

@@ -8,12 +8,18 @@
 import Foundation
 
 final class RepositoryDetailsViewModel: ObservableObject {
+    // MARK: - Property Wrappers
+    
     @Published var markdownText: String?
     @Published var isLoading = false
     @Published var error: String?
     @Published var isReadmeNotFound = false
     
+    // MARK: - Private Properties
+    
     private(set) var content: Content?
+    
+    // MARK: - Public Methods
     
     func getContent(
         owner: String,

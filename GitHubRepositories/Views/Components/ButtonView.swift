@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct ButtonView: View {
+    // MARK: - Private Properties
+    
     private let text: String
     private let isLoading: Bool
     private let action: () -> Void
+    
+    // MARK: - Initializers
     
     init(text: String, isLoading: Bool = false, action: @escaping () -> Void) {
         self.text = text
         self.isLoading = isLoading
         self.action = action
     }
+    
+    // MARK: - Body
     
     var body: some View {
         Button {
@@ -43,6 +49,8 @@ struct ButtonView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     ButtonView(text: "Sign up", isLoading: false, action: {})

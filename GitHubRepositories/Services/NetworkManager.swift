@@ -49,9 +49,15 @@ enum NetworkError: LocalizedError {
 }
 
 final class NetworkManager {
+    // MARK: - Public Properties
+    
     static let shared = NetworkManager()
     
+    // MARK: - Initializers
+    
     private init() {}
+    
+    // MARK: - Public Methods
     
     func fetchUser(
         url: String,
@@ -186,6 +192,8 @@ final class NetworkManager {
             }
         }.resume()
     }
+    
+    // MARK: - Private Methods
     
     private func createQuery(
         for url: URL,

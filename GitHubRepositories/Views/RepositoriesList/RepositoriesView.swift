@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct RepositoriesView: View {
+    // MARK: - Property Wrappers
+    
     @StateObject private var repositoriesViewModel = RepositoriesViewModel()
     
     @Binding var user: User?
+    
+    // MARK: - Body
     
     var body: some View {
         NavigationStack {
@@ -82,11 +86,15 @@ struct RepositoriesView: View {
         }
     }
     
+    // MARK: - Private Methods
+    
     private func fetchRepos() {
         guard let user = user else { return }
         repositoriesViewModel.fetchRepos(url: user.reposUrl)
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     RepositoriesView(user: .constant(User.getUser()))
