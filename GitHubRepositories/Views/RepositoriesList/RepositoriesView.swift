@@ -79,9 +79,9 @@ struct RepositoriesView: View {
                     user = nil
                 }
                 .foregroundStyle(.white)
-                .onAppear {
-                    fetchRepos()
-                }
+            }
+            .onAppear {
+                fetchRepos()
             }
         }
     }
